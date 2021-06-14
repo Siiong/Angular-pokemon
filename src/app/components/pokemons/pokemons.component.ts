@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PokemonsService } from 'src/app/services/pokemons.service';
 
 @Component({
   selector: 'app-pokemons',
@@ -6,19 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokemons.component.css']
 })
 export class PokemonsComponent implements OnInit {
+pokemons = [];
+count = 0
 
-pokemons = [
-  {'id':1, 'nom': 'Bulbizarre', 'categorie': 'graine', 'type': ['plante', 'poison'], 'taille': 0.70, 'poids': 6.9, 'img': "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"},
-  {'id':2, 'nom': 'Herbizarre', 'categorie': 'graine', 'type': ['plante', 'poison'], 'taille': 1, 'poids': 13, 'img': "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"},
-  {'id':3, 'nom': 'Florizarre', 'categorie': 'graine', 'type': ['plante', 'poison'], 'taille': 2, 'poids': 100, 'img': "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"},
-  {'id':4, 'nom': 'Salamèche', 'categorie': 'lézard', 'type': ['feu'], 'taille': 0.6, 'poids': 8.5, 'img': "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"},
-  {'id':5, 'nom': 'Reptincel', 'categorie': 'flamme', 'type': ['feu'], 'taille': 1.1, 'poids': 19, 'img': "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png"},
-  {'id':6, 'nom': 'Dracaufeu', 'categorie': 'flamme', 'type': ['feu', 'vol'], 'taille': 1.7, 'poids': 90.5, 'img': "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"},
-];
-
-  constructor() { }
+  constructor(private PokeService : PokemonsService) { }
 
   ngOnInit(): void {
+    this.pokemons = this.PokeService.getPokemons();
+    this.count = this.PokeService.comptagePokemons()
   }
 
 }
