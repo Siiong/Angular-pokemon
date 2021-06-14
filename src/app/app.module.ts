@@ -12,6 +12,7 @@ import { PokemonComponent } from './components/pokemon/pokemon.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BarreDeNavigationComponent } from './components/barre-de-navigation/barre-de-navigation.component';
+import { HttpClientModule } from '@angular/common/http'
 registerLocaleData(localeFR);
 
 @NgModule({
@@ -28,7 +29,8 @@ registerLocaleData(localeFR);
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'fr'}],
   bootstrap: [AppComponent]

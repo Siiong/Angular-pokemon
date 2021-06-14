@@ -12,27 +12,29 @@ import { faOptinMonster } from '@fortawesome/free-brands-svg-icons';
 })
 export class PokemonsComponent implements OnInit {
   select: any;
-  pokemons: Pokemon[] = [];
+  pokemons= [{}];
   count = 0;
   formRecherchePokemon = new FormRecherchePokemon('')
   faOptinMonster = faOptinMonster
   easterEggs = false;
 
   constructor(private PokeService: PokemonsService) {}
+ngOnInit(){}
+  // ngOnInit(): void {
+  //   this.PokeService.getPokemons().subscribe(res =>{
+  //     this.pokemons = res.results;
+  //     this.count = res.count;
+  //   })
 
-  ngOnInit(): void {
-    this.pokemons = this.PokeService.getPokemons();
-    this.count = this.PokeService.comptagePokemons();
-  }
   rechercher(nomDuPokemon: string){
-    this.pokemons =this.PokeService.rechercherPokemon(nomDuPokemon);
-    this.easterEggs = false;
-    if (nomDuPokemon == 'C3PO') {
-      this.easterEggs =true      
-    }
+    // this.pokemons =this.PokeService.rechercherPokemon(nomDuPokemon);
+    // this.easterEggs = false;
+    // if (nomDuPokemon == 'C3PO') {
+    //   this.easterEggs =true      
+    // }
   }
   annulerRecherche() {
-    this.pokemons = this.PokeService.getPokemons();
-    this.formRecherchePokemon.setNom('')
+    // this.pokemons = this.PokeService.getPokemons();
+    // this.formRecherchePokemon.setNom('')
   }
 }
