@@ -10,7 +10,7 @@
   </div>
   <div class="columns">
     <div class="column is-two-third">
-      <form>
+      <form #form="ngForm">
         <div class="field has-addons">
           <div class="control has-icons-left">
             <input
@@ -19,14 +19,18 @@
               name="pokemonRecherche"
               placeholder="Nom du Pokémon"
               [(ngModel)]="formRecherchePokemon.nom"
+              (keyup)="rechercher(formRecherchePokemon.nom)"
+              pattern="[a-zA-Z]*" [class.is-danger]= form.invalid
             />
             <span class="icon is-small is-left">
               <fa-icon [icon]="faOptinMonster"></fa-icon>
             </span>
+            <div *ngIf="form.invalid" class="tag is-danger is-light">Le champs de saisie ne doit contenir que des lettres.</div>
           </div>
           <a
             class="button is-primary is-small"
             (click)="rechercher(formRecherchePokemon.nom)"
+            [class.is-danger]='form.invalid'
           >
             Rechercher</a
           >
