@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  } from '@angular/core';
+import { Pokemon } from 'src/app/pokemon.model';
 import { PokemonsService } from 'src/app/services/pokemons.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { PokemonsService } from 'src/app/services/pokemons.service';
   styleUrls: ['./pokemons.component.css']
 })
 export class PokemonsComponent implements OnInit {
-pokemons = [];
+pokemons:Pokemon[] = [];
 count = 0
 
   constructor(private PokeService : PokemonsService) { }
@@ -16,5 +17,5 @@ count = 0
     this.pokemons = this.PokeService.getPokemons();
     this.count = this.PokeService.comptagePokemons()
   }
-
+ 
 }
