@@ -7,7 +7,8 @@ import { GenerationsComponent } from './components/generations/generations.compo
 import { PokemonsComponent } from './components/pokemons/pokemons.component';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
-import  localeFR from '@angular/common/locales/fr'
+import  localeFR from '@angular/common/locales/fr';
+import { PokemonComponent } from './components/pokemon/pokemon.component'
 
 registerLocaleData(localeFR);
 
@@ -16,6 +17,7 @@ registerLocaleData(localeFR);
     AppComponent,
     GenerationsComponent,
     PokemonsComponent,
+    PokemonComponent,
     
   ],
   imports: [

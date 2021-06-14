@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-pokemons',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokemons.component.css']
 })
 export class PokemonsComponent implements OnInit {
+  
 
 pokemons = [
   {'id':1, 'nom': 'Bulbizarre', 'categorie': 'graine', 'type': ['plante', 'poison'], 'taille': 0.70, 'poids': 6.9, 'img': "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"},
@@ -20,5 +21,5 @@ pokemons = [
 
   ngOnInit(): void {
   }
-
+ 
 }
