@@ -20,12 +20,15 @@
               placeholder="Nom du Pokémon"
               [(ngModel)]="formRecherchePokemon.nom"
               (keyup)="rechercher(formRecherchePokemon.nom)"
-              pattern="[a-zA-Z]*" [class.is-danger]= form.invalid
+              pattern="[a-zA-Z 3]*" [class.is-danger]= form.invalid
             />
             <span class="icon is-small is-left">
               <fa-icon [icon]="faOptinMonster"></fa-icon>
             </span>
             <div *ngIf="form.invalid" class="tag is-danger is-light">Le champs de saisie ne doit contenir que des lettres.</div>
+            <div *ngIf="easterEggs">
+              <img src="https://media.giphy.com/media/3o7bu1nVSxNQUWMAZa/giphy.gif" >
+            </div>
           </div>
           <a
             class="button is-primary is-small"
