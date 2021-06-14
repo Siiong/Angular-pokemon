@@ -1,17 +1,55 @@
 <div class="container">
-  <h2>Les six premiers pokemons: </h2>
-  <hr>
+  <h2>Les six premiers pokemons:</h2>
+  <hr />
   <div class="columns">
-    <div class="column">
-      <p>Dans l'ordre du Pokédex : </p>
-      <p *ngIf="select">Le Pokémon séléctionné est : {{select.nom}}</p>
+    <div class="column is-one-third">
+      <p>{{ count }} Pokémons en base de données</p>
+      <p>Dans l'ordre du Pokédex :</p>
+      <p *ngIf="select">Le Pokémon séléctionné est : {{ select.nom }}</p>
     </div>
   </div>
-  <div class="columns is-multiline">
-    <ul class="menu-list column is-one-third" *ngFor="let pokemon of pokemons">
-<li>
-  <app-pokemon [pokemon]=pokemon (select)='select=$event'></app-pokemon>
-</li>
-    </ul>
+  <div class="columns">
+    <div class="column is-two-third">
+      <form>
+        <div class="field has-addons">
+          <div class="control has-icons-left">
+            <input
+              class="input is-small"
+              type="text"
+              name="pokemonRecherche"
+              placeholder="Nom du Pokémon"
+              [(ngModel)]="formRecherchePokemon.nom"
+            />
+            <span class="icon is-small is-left">
+              <fa-icon [icon]="faOptinMonster"></fa-icon>
+            </span>
+          </div>
+          <a
+            class="button is-primary is-small"
+            (click)="rechercher(formRecherchePokemon.nom)"
+          >
+            Rechercher</a
+          >
+
+          <div class="control">
+            <a class="button is-light is-small" (click)="annulerRecherche()">Annuler</a>
+          </div>
+        </div>
+      </form>
+      <!-- <div *ngIf="pokemons?.length<1">Aucun Pokémon trouvé</div> -->
+      <div class="columns is-multiline">
+        <ul
+          class="menu-list column is-one-third"
+          *ngFor="let pokemon of pokemons"
+        >
+          <li>
+            <app-pokemon
+              [pokemon]="pokemon"
+              (select)="select = $event"
+            ></app-pokemon>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

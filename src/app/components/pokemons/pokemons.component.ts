@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormRecherchePokemon } from 'src/app/models/form-recherche-pokemon';
 import { Pokemon } from 'src/app/pokemon.model';
 import { PokemonsService } from 'src/app/services/pokemons.service';
+import { faOptinMonster } from '@fortawesome/free-brands-svg-icons';
+
 
 @Component({
   selector: 'app-pokemons',
@@ -11,11 +14,19 @@ export class PokemonsComponent implements OnInit {
   select: any;
   pokemons: Pokemon[] = [];
   count = 0;
-
+  formRecherchePokemon = new FormRecherchePokemon('')
+  faOptinMonster = faOptinMonster
   constructor(private PokeService: PokemonsService) {}
 
   ngOnInit(): void {
     this.pokemons = this.PokeService.getPokemons();
     this.count = this.PokeService.comptagePokemons();
+  }
+  rechercher(nomDuPokemon: string){
+    this.pokemons =this.PokeService.rechercherPokemon(nomDuPokemon)
+  }
+  annulerRecherche() {
+    this.pokemons = this.PokeService.getPokemons();
+    this.formRecherchePokemon.setNom('')
   }
 }
