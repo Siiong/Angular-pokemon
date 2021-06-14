@@ -11,6 +11,7 @@ import  localeFR from '@angular/common/locales/fr';
 import { PokemonComponent } from './components/pokemon/pokemon.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BarreDeNavigationComponent } from './components/barre-de-navigation/barre-de-navigation.component';
 registerLocaleData(localeFR);
 
 @NgModule({
@@ -19,6 +20,7 @@ registerLocaleData(localeFR);
     GenerationsComponent,
     PokemonsComponent,
     PokemonComponent,
+    BarreDeNavigationComponent,
     
   ],
   imports: [
