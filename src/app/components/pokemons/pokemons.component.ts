@@ -7,7 +7,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class PokemonsComponent implements OnInit {
   
-
+select:any;
+count = 0;
 pokemons = [
   {'id':1, 'nom': 'Bulbizarre', 'categorie': 'graine', 'type': ['plante', 'poison'], 'taille': 0.70, 'poids': 6.9, 'img': "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"},
   {'id':2, 'nom': 'Herbizarre', 'categorie': 'graine', 'type': ['plante', 'poison'], 'taille': 1, 'poids': 13, 'img': "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"},

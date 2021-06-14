@@ -1,24 +1,20 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Pokemon } from 'src/app/pokemon';
+import { Pokemon } from 'src/app/pokemon.model';
 
 @Component({
   selector: 'app-pokemon',
   templateUrl: './pokemon.component.html',
-  styleUrls: ['./pokemon.component.css']
+  styleUrls: ['./pokemon.component.css'],
 })
 export class PokemonComponent implements OnInit {
-   @Input() pokemon: Pokemon= {id,nom,categorie,type,taille,poids,img}  
-  @Output() evenementClicImage = new EventEmitter
+  @Input() pokemon:any
+  @Output() select = new EventEmitter();
 
-  constructor() {
-   }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  clicSurImage() {
+    this.select.emit(this.pokemon);
   }
-  clicSurImage(nom: string){
-    this.evenementClicImage.emit(nom)
-  }
-
-  
-
 }
