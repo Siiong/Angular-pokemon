@@ -18,8 +18,8 @@ getGenerations(){
   return this.http.get<GenerationsAPI>(url)
 }
 
-  getPokemons(limit: number, offset:number) {
-    let url  =`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
+  getPokemons() {
+    let url  =`https://pokeapi.co/api/v2/pokemon/`
     return this.http.get<PokemonsAPI>(url)
   }
 

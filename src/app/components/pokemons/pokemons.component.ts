@@ -12,7 +12,6 @@ import { faOptinMonster } from '@fortawesome/free-brands-svg-icons';
 export class PokemonsComponent implements OnInit {
   select: any;
   pokemons: any;
-  limit = 25;
   count = 0;
   formRecherchePokemon = new FormRecherchePokemon('');
   faOptinMonster = faOptinMonster;
@@ -24,7 +23,7 @@ export class PokemonsComponent implements OnInit {
     this.getPokemon();
   }
   getPokemon() {
-    this.PokeService.getPokemons(this.limit, this.page).subscribe((res) => {
+    this.PokeService.getPokemons().subscribe((res) => {
       this.pokemons = res.results;
       this.count = res.count;
     });
