@@ -3,6 +3,6 @@ export class PokemonsAPI {
   next!:String;
   previous!:String;
   results!: 
-    {name:string, url:String}[]
+    [{name:string, url:String}]
   
 }

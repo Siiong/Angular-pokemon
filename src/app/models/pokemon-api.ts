@@ -1,9 +1,16 @@
 export class PokemonAPI {
-  name!: String;
+  name!: string;
   sprites!: {
-    back_default:String;
-    front_default:String;
-  }
+    front_default: string;
+    back_default: string;
+  };
+  types!: [
+    {
+      type: {
+        name: string;
+      }
+    }
+  ];
   height!: number;
-  weight!:number;
+  weight!: number;
 }

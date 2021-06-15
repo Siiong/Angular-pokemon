@@ -15,7 +15,6 @@ export class GenerationsComponent implements OnInit {
     this.servicePokemon.getGenerations().subscribe(resultat => {
       this.generations = resultat.results;
       this.nbreDeGenerations = resultat.count;
-      console.log(this.generations);
     });
   }
 }

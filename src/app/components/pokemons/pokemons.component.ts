@@ -4,7 +4,6 @@ import { Pokemon } from 'src/app/pokemon.model';
 import { PokemonsService } from 'src/app/services/pokemons.service';
 import { faOptinMonster } from '@fortawesome/free-brands-svg-icons';
 
-
 @Component({
   selector: 'app-pokemons',
   templateUrl: './pokemons.component.html',
@@ -12,25 +11,29 @@ import { faOptinMonster } from '@fortawesome/free-brands-svg-icons';
 })
 export class PokemonsComponent implements OnInit {
   select: any;
-  pokemons= [{}];
+  pokemons: any;
+  limit = 25;
   count = 0;
-  formRecherchePokemon = new FormRecherchePokemon('')
-  faOptinMonster = faOptinMonster
+  formRecherchePokemon = new FormRecherchePokemon('');
+  faOptinMonster = faOptinMonster;
   easterEggs = false;
 
   constructor(private PokeService: PokemonsService) {}
-ngOnInit(){}
-  // ngOnInit(): void {
-  //   this.PokeService.getPokemons().subscribe(res =>{
-  //     this.pokemons = res.results;
-  //     this.count = res.count;
-  //   })
 
-  rechercher(nomDuPokemon: string){
+  ngOnInit(): void {
+    this.getPokemon();
+  }
+  getPokemon() {
+    this.PokeService.getPokemons(this.limit, this.page).subscribe((res) => {
+      this.pokemons = res.results;
+      this.count = res.count;
+    });
+  }
+  rechercher(nomDuPokemon: string) {
     // this.pokemons =this.PokeService.rechercherPokemon(nomDuPokemon);
     // this.easterEggs = false;
     // if (nomDuPokemon == 'C3PO') {
-    //   this.easterEggs =true      
+    //   this.easterEggs =true
     // }
   }
   annulerRecherche() {
