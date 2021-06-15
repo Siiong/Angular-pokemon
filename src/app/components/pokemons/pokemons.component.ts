@@ -30,15 +30,25 @@ export class PokemonsComponent implements OnInit {
       this.count = res.count;
     });
   }
-  rechercher(nomDuPokemon: string) {
-    // this.pokemons =this.PokeService.rechercherPokemon(nomDuPokemon);
-    // this.easterEggs = false;
-    // if (nomDuPokemon == 'C3PO') {
-    //   this.easterEggs =true
-    // }
+  rechercher(nomDuPokemon: any) {
+    this.easterEggs = false;
+    const regex = new RegExp(nomDuPokemon, 'gi');
+    this.pokemons = this.PokeService.getPokemons(
+      this.limit,
+      this.page
+    ).subscribe((res) => {
+      this.pokemons = res.results.filter((pokemon) =>
+        pokemon.name.match(regex)
+      );
+      if (nomDuPokemon == 'C3PO') {
+        this.easterEggs = true;
+      }
+    });
   }
   annulerRecherche() {
-    // this.pokemons = this.PokeService.getPokemons();
-    // this.formRecherchePokemon.setNom('')
+    this.pokemons = this.PokeService.getPokemons(this.limit, this.page).subscribe(res => {
+      this.pokemons = res.results
+    });
+    this.formRecherchePokemon.setNom('')
   }
 }

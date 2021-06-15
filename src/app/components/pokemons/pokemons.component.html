@@ -18,8 +18,8 @@
               type="text"
               name="pokemonRecherche"
               placeholder="Nom du Pokémon"
-              [(ngModel)]="formRecherchePokemon.nom"
-              (keyup)="rechercher(formRecherchePokemon.nom)"
+              [(ngModel)]="formRecherchePokemon.name"
+              (keyup)="rechercher(formRecherchePokemon.name)"
               pattern="[a-zA-Z 3]*"
               [class.is-danger]="form.invalid"
             />
@@ -37,7 +37,7 @@
           </div>
           <a
             class="button is-primary is-small"
-            (click)="rechercher(formRecherchePokemon.nom)"
+            (click)="rechercher(formRecherchePokemon.name)"
             [class.is-danger]="form.invalid"
           >
             Rechercher

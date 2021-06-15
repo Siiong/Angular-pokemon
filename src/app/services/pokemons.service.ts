@@ -24,11 +24,5 @@ export class PokemonsService {
 
   getPokemon = (url: string) => this.http.get<PokemonAPI>(url);
 
-  // comptagePokemons() {
-  //   return this.pokemons.length
-  // }
-  // rechercherPokemon(nomDuPokemon: string){
-  //   let regex = new RegExp(nomDuPokemon, 'gi');
-  //   return this.pokemons.filter( pokemon => pokemon.nom.match(regex));
-  // }
+  
 }
