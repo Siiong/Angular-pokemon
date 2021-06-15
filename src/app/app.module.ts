@@ -7,12 +7,14 @@ import { GenerationsComponent } from './components/generations/generations.compo
 import { PokemonsComponent } from './components/pokemons/pokemons.component';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
-import  localeFR from '@angular/common/locales/fr';
-import { PokemonComponent } from './components/pokemon/pokemon.component'
+import localeFR from '@angular/common/locales/fr';
+import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BarreDeNavigationComponent } from './components/barre-de-navigation/barre-de-navigation.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 registerLocaleData(localeFR);
 
 @NgModule({
@@ -22,7 +24,6 @@ registerLocaleData(localeFR);
     PokemonsComponent,
     PokemonComponent,
     BarreDeNavigationComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -30,9 +31,10 @@ registerLocaleData(localeFR);
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
   ],
-  providers: [{provide: LOCALE_ID, useValue: 'fr'}],
-  bootstrap: [AppComponent]
+  providers: [{ provide: LOCALE_ID, useValue: 'fr' }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
